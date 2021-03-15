@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "741215417269",
+    "project_id": "personaldictionaryfree",
+    "storage_bucket": "personaldictionaryfree.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:741215417269:android:ed4ed25a78e8ccf7385ffc",
+        "android_client_info": {
+          "package_name": "ru.tatarchuk.personaldictionary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "741215417269-s8j9ktsvtmkpaj6b140h0is380o7ehmk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ru.tatarchuk.personaldictionary",
+            "certificate_hash": "ec31c585a38b05dfb1450ac1651e27333d9c2b3a"
+          }
+        },
+        {
+          "client_id": "741215417269-5gb0poor0t0f2h1avvr909kkrbkv47kl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhkB5B_6YfvqX2jtssm534xGrs1QTnBwc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "741215417269-5gb0poor0t0f2h1avvr909kkrbkv47kl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

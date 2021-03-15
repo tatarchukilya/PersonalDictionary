@@ -1,0 +1,94 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'kotlin-kapt'
+
+def localProperties = new Properties()
+//localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+
+localProperties.load(project.rootProject.file("local.properties").newDataInputStream())
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "ru.tatarchuk.personaldictionary"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        buildFeatures {
+            viewBinding true
+        }
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+
+        debug {
+            buildConfigField("String", "GOOGEL_TRANSLATE_API_KEY", localProperties['GOOGEL_TRANSLATE_API_KEY'])
+            buildConfigField("String", "ASURE_TRANSLATE_API_KEY", localProperties['ASURE_TRANSLATE_API_KEY'])
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "GOOGEL_TRANSLATE_API_KEY", localProperties['GOOGEL_TRANSLATE_API_KEY'])
+            buildConfigField("String", "ASURE_TRANSLATE_API_KEY", localProperties['ASURE_TRANSLATE_API_KEY'])
+        }
+    }
+    compileOptions {
+        targetCompatibility "1.8"
+        sourceCompatibility "1.8"
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.google.android.material:material:1.3.0'
+    //Lifecycle
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.0'
+    //Firebase
+    implementation platform('com.google.firebase:firebase-bom:26.5.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-firestore:22.1.1'
+
+    //Dagger2
+    implementation "com.google.dagger:dagger:2.20"
+    kapt 'com.google.dagger:dagger-compiler:2.20'
+    //Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
+    // Coroutines extensions for the Tasks API
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.3.9'
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+    //Gson
+    implementation 'com.google.code.gson:gson:2.8.6'
+    //Room
+    implementation "androidx.room:room-runtime:2.2.6"
+    kapt "androidx.room:room-compiler:2.2.6"
+    implementation "androidx.room:room-ktx:2.2.6"
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}

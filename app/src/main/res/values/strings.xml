@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Personal Dictionary</string>
+    <string name="dictionary">Dictionary</string>
+    <string name="new_word">New word</string>
+    <string name="input_english_word">Input english word</string>
+    <string name="translation">Translation</string>
+    <string name="transcription">=Transcription</string>
+    <string name="example">Example</string>
+</resources>

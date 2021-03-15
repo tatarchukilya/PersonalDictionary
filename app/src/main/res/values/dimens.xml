@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding">4dp</dimen>
+
+    <dimen name="marginSmall">4dp</dimen>
+    <dimen name="marginStandard">8dp</dimen>
+    <dimen name="marginLarge">16dp</dimen>
+    <dimen name="marginExtraLarge">32dp</dimen>
+    <dimen name="noMargin">0dp</dimen>
+
+    <dimen name="textLarge">20sp</dimen>
+    <dimen name="textStandard">16sp</dimen>
+    <dimen name="textSmall">14sp</dimen>
+
+    <dimen name="dividerHeight">1dp</dimen>
+
+    <dimen name="maxWeight">0dp</dimen>
+
+    <dimen name="iconSize">24dp</dimen>
+</resources>
