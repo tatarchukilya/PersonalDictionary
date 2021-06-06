@@ -4,11 +4,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import ru.tatarchuk.personaldictionary.R
+import ru.tatarchuk.personaldictionary.presentation.core.DIFragment
 
 /**
  * @author tatarchukilya@gmail.com
  */
-class SingleWordFragment : BaseFragment() {
+class SingleWordFragment : DIFragment() {
 
     override fun layoutResId() = R.layout.fragment_single_word
 

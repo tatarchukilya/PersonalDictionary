@@ -2,7 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:background="@android:color/background_light"
     android:orientation="vertical">
 
+    <TextView
+        android:textAppearance="@style/TextPrimary.Bold.Large"
+        android:id="@+id/text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?actionBarSize"
+        android:gravity="center"
+        tools:text="@string/transcription"/>
+
+    <Button
+        android:id="@+id/show_next"
+        android:text="Show Next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/large" />
 
 </LinearLayout>

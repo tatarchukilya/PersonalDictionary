@@ -23,7 +23,7 @@ fun Map<String, Any>.toWord(): FireStoreWord {
     val word = get("word") as String
     val transcription = get("transcription") as String
     val translation = get("translation") as List<String>
-    return FireStoreWord(transcription, translation, word)
+    return FireStoreWord(word, transcription, translation)
 }
 
 fun Flow<GoogleBody>.getTranslate() = flow {

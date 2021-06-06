@@ -9,11 +9,12 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.LayoutRes
 import ru.tatarchuk.personaldictionary.R
+import ru.tatarchuk.personaldictionary.presentation.core.DIFragment
 
 /**
  * @author tatarchukilya@gmail.com
  */
-class TestFragment : BaseFragment() {
+class TestFragment : DIFragment() {
 
     //compile 'com.googlecode.libphonenumber:libphonenumber:8.2.0'
 

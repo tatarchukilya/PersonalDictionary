@@ -3,17 +3,19 @@ package ru.tatarchuk.personaldictionary.presentation.recycler
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import ru.tatarchuk.personaldictionary.R
-import ru.tatarchuk.personaldictionary.presentation.recycler.item.BaseItem
-import ru.tatarchuk.personaldictionary.presentation.recycler.viewholder.BaseViewHolder
-import ru.tatarchuk.personaldictionary.presentation.recycler.viewholder.WordViewHolder
+import ru.tatarchuk.personaldictionary.presentation.newword.recycler.NewWordViewType
+import ru.tatarchuk.personaldictionary.presentation.newword.recycler.ChildViewHolder
 
 /**
  * @author tatarchukilya@gmail.com
  */
-fun createDictionaryViewHolders(parent: ViewGroup, viewType: Int): BaseViewHolder<out BaseItem> {
+fun createDictionaryViewHolders(
+    parent: ViewGroup,
+    viewType: Int
+): BaseViewHolder<out ListItem> {
     return when (viewType) {
-        R.layout.view_word -> WordViewHolder(
-            LayoutInflater.from(parent.context).inflate(viewType, parent, false)
+        NewWordViewType.Child.id -> ChildViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.nested_item_view, parent, false)
         )
         else -> throw IllegalArgumentException("Illegal view type $viewType")
     }

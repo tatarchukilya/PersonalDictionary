@@ -2,45 +2,53 @@ package ru.tatarchuk.personaldictionary.presentation.recycler
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ru.tatarchuk.personaldictionary.presentation.recycler.item.BaseItem
-import ru.tatarchuk.personaldictionary.presentation.recycler.viewholder.BaseViewHolder
 
 /**
  * @author tatarchukilya@gmail.com
  */
-class RecyclerAdapter(private val factoryMethod: (ViewGroup, Int) -> BaseViewHolder<out BaseItem>) :
-    RecyclerView.Adapter<BaseViewHolder<BaseItem>>() {
+class RecyclerAdapter(
+    private val factoryMethod: (
+        ViewGroup,
+        Int
+    ) -> BaseViewHolder<out ListItem>
+) :
+    RecyclerView.Adapter<BaseViewHolder<ListItem>>() {
 
-    private var items = mutableListOf<BaseItem>()
+    var items = mutableListOf<ListItem>()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
 
     @Suppress("UNCHECKED_CAST")
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<BaseItem> =
-        factoryMethod(parent, viewType) as BaseViewHolder<BaseItem>
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<ListItem> =
+        factoryMethod(parent, viewType) as BaseViewHolder<ListItem>
 
-
-    override fun onBindViewHolder(holder: BaseViewHolder<BaseItem>, position: Int) {
+    override fun onBindViewHolder(holder: BaseViewHolder<ListItem>, position: Int) {
         holder.onBind(items[position])
     }
 
-    override fun onViewDetachedFromWindow(holder: BaseViewHolder<BaseItem>) {
-        holder.onUnbind()
+    override fun onViewRecycled(holder: BaseViewHolder<ListItem>) {
+        holder.unbind()
     }
 
     override fun getItemCount() = items.size
 
-    override fun getItemViewType(position: Int) = items[position].layoutResId()
+    override fun getItemViewType(position: Int) = items[position].viewType()
 
-    fun add(item: BaseItem) {
-        items.add(item)
+    fun setNewList(items: List<ListItem>) {
+        this.items.clear()
+        this.items.addAll(items)
         notifyDataSetChanged()
     }
 
-    fun addItems(_items: List<BaseItem>) {
-        items.addAll(_items)
+    fun add(item: ListItem) {
+        items.add(item)
+        notifyItemChanged(items.lastIndex)
+    }
+
+    fun addItems(items: List<ListItem>) {
+        this.items.addAll(items)
         notifyDataSetChanged()
     }
 }

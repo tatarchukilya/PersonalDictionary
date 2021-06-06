@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="padding">4dp</dimen>
 
-    <dimen name="marginSmall">4dp</dimen>
-    <dimen name="marginStandard">8dp</dimen>
-    <dimen name="marginLarge">16dp</dimen>
-    <dimen name="marginExtraLarge">32dp</dimen>
-    <dimen name="noMargin">0dp</dimen>
+    <dimen name="AA32">0dp</dimen>
+    <dimen name="one">1dp</dimen>
+    <dimen name="min">2dp</dimen>
+    <dimen name="small">4dp</dimen>
+    <dimen name="standard">8dp</dimen>
+    <dimen name="large">16dp</dimen>
+    <dimen name="extra_large">32dp</dimen>
+    <dimen name="xxl">48dp</dimen>
+    <dimen name="xxxl">56dp</dimen>
+    <dimen name="max">64dp</dimen>
 
     <dimen name="textLarge">20sp</dimen>
     <dimen name="textStandard">16sp</dimen>
@@ -17,4 +21,9 @@
     <dimen name="maxWeight">0dp</dimen>
 
     <dimen name="iconSize">24dp</dimen>
+
+    <dimen name="viewElevation">8dp</dimen>
+
+    <!--other-->
+    <dimen name="bottomNavigationHeight">56dp</dimen>
 </resources>

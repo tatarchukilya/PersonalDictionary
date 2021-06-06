@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/background_light">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize">
+
+            <EditText
+                android:id="@+id/edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:autofillHints="@string/search"
+                android:background="@null"
+                android:hint="@string/search"
+                android:inputType="textFilter"
+                android:textAppearance="@style/TextPrimary.Normal.Standard" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?actionBarSize"
+        android:background="@drawable/light_transparent_gradient"
+        android:elevation="1dp"
+        app:layout_behavior=".utils.TopViewBehavior">
+
+        <RadioGroup
+            android:id="@+id/toggle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/extra_large"
+            android:layout_marginLeft="@dimen/large"
+            android:layout_marginTop="@dimen/standard"
+            android:layout_marginRight="@dimen/large"
+            android:layout_marginBottom="@dimen/standard"
+            android:background="@drawable/round_corners"
+            android:checkedButton="@+id/offer"
+            android:elevation="2dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/search"
+                android:layout_width="@dimen/AA32"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/one"
+                android:layout_marginTop="@dimen/one"
+                android:layout_marginBottom="@dimen/one"
+                android:layout_weight="1"
+                android:background="@drawable/search_switch_color"
+                android:button="@null"
+                android:gravity="center"
+                android:text="Search"
+                android:textColor="@color/colorPrimaryText" />
+
+            <RadioButton
+                android:id="@+id/offer"
+                android:layout_width="@dimen/AA32"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/one"
+                android:layout_marginEnd="@dimen/one"
+                android:layout_marginBottom="@dimen/one"
+                android:layout_weight="1"
+                android:background="@drawable/search_switch_color"
+                android:button="@null"
+                android:gravity="center"
+                android:text="Add"
+                android:textColor="@color/colorPrimaryText" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/large"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/view_search_single_word" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

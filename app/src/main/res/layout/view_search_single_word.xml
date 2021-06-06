@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:minHeight="64dp"
+    android:paddingStart="@dimen/large"
+    android:paddingEnd="@dimen/large"
+    android:paddingTop="@dimen/standard"
+    android:paddingBottom="@dimen/standard"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/word_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/small"
+        android:maxLines="1"
+        android:textAppearance="@style/TextPrimary.Normal.Standard"
+        tools:text="@string/translation" />
+
+    <TextView
+        android:id="@+id/translation_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:textAppearance="@style/TextSecondary.Normal.Small"
+        tools:text="@string/transcription" />
+</LinearLayout>

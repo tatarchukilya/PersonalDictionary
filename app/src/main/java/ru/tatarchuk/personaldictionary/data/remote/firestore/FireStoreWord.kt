@@ -1,12 +1,11 @@
 package ru.tatarchuk.personaldictionary.data.remote.firestore
 
-import java.util.*
-
 /**
  * @author tatarchukilya@gmail.com
  */
 data class FireStoreWord(
+    var word: String,
     var transcription: String = "",
-    var translation: List<String> = Collections.emptyList(),
-    var word: String = ""
+    var translation: List<String> = listOf(),
+    var example: List<String> = listOf(),
 )

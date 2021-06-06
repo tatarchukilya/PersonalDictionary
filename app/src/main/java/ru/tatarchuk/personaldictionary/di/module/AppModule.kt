@@ -5,19 +5,21 @@ import dagger.Module
 import dagger.Provides
 import ru.tatarchuk.personaldictionary.DictionaryApp
 import ru.tatarchuk.personaldictionary.data.db.DictionaryDao
-import ru.tatarchuk.personaldictionary.data.remote.firestore.FireStoreApi
 import ru.tatarchuk.personaldictionary.data.remote.rest.asure.AsureTranslateApi
+import ru.tatarchuk.personaldictionary.data.remote.rest.dictionary.DictionaryTranslateApi
 import ru.tatarchuk.personaldictionary.data.remote.rest.google.GoogleTranslateApi
 import ru.tatarchuk.personaldictionary.data.repo.RepositoryImpl
-import ru.tatarchuk.personaldictionary.domain.usecase.TestInteractor
-import ru.tatarchuk.personaldictionary.domain.usecase.TestInteractorImpl
-import ru.tatarchuk.personaldictionary.domain.usecase.newword.NewWordInteractor
-import ru.tatarchuk.personaldictionary.domain.usecase.newword.NewWordInteractorImpl
-import ru.tatarchuk.personaldictionary.domain.usecase.dictionary.DictionaryUseCase
+import ru.tatarchuk.personaldictionary.domain.repo.Repository
 import ru.tatarchuk.personaldictionary.domain.usecase.dictionary.DictionaryInteractorImpl
+import ru.tatarchuk.personaldictionary.domain.usecase.dictionary.DictionaryUseCase
+import ru.tatarchuk.personaldictionary.domain.usecase.newword.NewWordUseCase
+import ru.tatarchuk.personaldictionary.domain.usecase.newword.NewWordUseCaseImpl
+import ru.tatarchuk.personaldictionary.domain.usecase.search.SearchUseCase
+import ru.tatarchuk.personaldictionary.domain.usecase.search.SearchUseCaseImpl
+import ru.tatarchuk.personaldictionary.domain.usecase.sendnewword.SendNewWordUseCase
+import ru.tatarchuk.personaldictionary.domain.usecase.sendnewword.SendNewWordUseCaseImpl
 import ru.tatarchuk.personaldictionary.domain.usecase.singleword.SingleWordInteractor
 import ru.tatarchuk.personaldictionary.domain.usecase.singleword.SingleWordInteractorImpl
-import ru.tatarchuk.personaldictionary.domain.repo.Repository
 import javax.inject.Singleton
 
 /**
@@ -33,21 +35,16 @@ class AppModule(private val application: DictionaryApp) {
     @Singleton
     fun provideRepository(
         dao: DictionaryDao,
-        fireStoreApi: FireStoreApi,
         googleApi: GoogleTranslateApi,
-        asureApi: AsureTranslateApi
+        asureApi: AsureTranslateApi,
+        dictionaryTranslateApi: DictionaryTranslateApi
     ): Repository =
         RepositoryImpl(
             dao,
-            fireStoreApi,
             googleApi,
-            asureApi
+            asureApi,
+            dictionaryTranslateApi
         )
-
-    @Provides
-    @Singleton
-    fun provideTestInteractor(repository: Repository): TestInteractor =
-        TestInteractorImpl(repository)
 
     @Provides
     @Singleton
@@ -61,6 +58,16 @@ class AppModule(private val application: DictionaryApp) {
 
     @Provides
     @Singleton
-    fun provideNewWordInteractor(repository: Repository): NewWordInteractor =
-        NewWordInteractorImpl(repository)
+    fun provideNewWordInteractor(repository: Repository): NewWordUseCase =
+        NewWordUseCaseImpl(repository)
+
+    @Provides
+    @Singleton
+    fun provideNewWordUseCase(repository: Repository): SendNewWordUseCase =
+        SendNewWordUseCaseImpl(repository)
+
+    @Provides
+    @Singleton
+    fun provideSearchUseCase(repository: Repository): SearchUseCase =
+        SearchUseCaseImpl(repository)
 }

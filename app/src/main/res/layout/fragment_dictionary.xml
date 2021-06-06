@@ -5,25 +5,13 @@
     android:layout_height="match_parent"
     android:background="@android:color/background_light">
 
-    <include
-        android:id="@+id/app_bar"
-        layout="@layout/toolbar_layout" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/maxWeight"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_bar" />
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_add_word"
+        android:id="@+id/fab_search"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/maxWeight"
-        android:layout_margin="@dimen/marginLarge"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/large"
+        android:src="@drawable/ic_search_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_add_24" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

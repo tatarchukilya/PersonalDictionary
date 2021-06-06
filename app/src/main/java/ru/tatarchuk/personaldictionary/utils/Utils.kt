@@ -6,11 +6,13 @@ import android.widget.EditText
 import androidx.annotation.IntDef
 import androidx.annotation.StringDef
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.FragmentTransaction
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.onStart
+import ru.tatarchuk.personaldictionary.presentation.core.FragmentType
 import ru.tatarchuk.personaldictionary.utils.Lang.Companion.EN
 import ru.tatarchuk.personaldictionary.utils.Lang.Companion.RU
 
@@ -37,10 +39,6 @@ fun View.hide() {
 fun View.show() {
     visibility = VISIBLE
 }
-
-@Retention(AnnotationRetention.SOURCE)
-@IntDef(VISIBLE, INVISIBLE, GONE)
-annotation class Visibility
 
 @Retention(AnnotationRetention.SOURCE)
 @StringDef(RU, EN)
